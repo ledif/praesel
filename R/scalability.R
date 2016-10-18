@@ -10,6 +10,20 @@ library(dplyr)
 #' scalability(df)
 scalability <- function(df)
 {
-  serial_time <- filter(df, p==1)$t
-  mutate(df, scalability=serial_time/t)
+  # Empty data frames
+  if (nrow(df) == 0) {
+    return(df)
+  }
+
+  # Get the time on one processor
+  serial_time <- filter(df, p==1)$t;
+
+  # If this group doesn't have a one processor observation,
+  # then the scalability is NA
+  if (identical(serial_time, numeric(0))) {
+    serial_time <- NA
+  }
+
+  # Scalability is single proc time over time
+  return(mutate(df, scalability=serial_time/t))
 }
