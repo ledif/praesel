@@ -1,0 +1,10 @@
+Package: praesel
+Title: Utility functions for parallel computing data analysis
+Version: 0.0.1
+Authors@R: person("Adam", "Fidel", email = "refuse@gmail.com", role = c("aut", "cre"))
+Description: Provides useful functions for computing common things in parallel computing research, such as scalability.
+Depends: R (>= 3.3.1)
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 5.0.1.9000
